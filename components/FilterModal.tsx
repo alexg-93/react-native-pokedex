@@ -25,6 +25,7 @@ const FilterModal: React.FC<FilterModalProps> = ({
 }) => {
   const [minStrength, setMinStrength] = useState<string>('');
 
+  // Synchronizes the local minStrength state with the currentStrength prop.
   useEffect(() => {
     if (currentStrength !== null) {
       setMinStrength(currentStrength.toString());
@@ -33,6 +34,7 @@ const FilterModal: React.FC<FilterModalProps> = ({
     }
   }, [currentStrength]);
 
+  // Handles the application of the filter, parsing the input and calling the onApply prop.
   const handleApply = () => {
     const strength = parseInt(minStrength, 10);
    
@@ -40,6 +42,7 @@ const FilterModal: React.FC<FilterModalProps> = ({
     
   };
 
+  // Updates the minStrength state, ensuring only numeric values are accepted.
   const handleChangeText = (text: string) => {
     const numericValue = text.replace(/[^0-9]/g, '');
     setMinStrength(numericValue);

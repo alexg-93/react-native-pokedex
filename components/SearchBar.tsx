@@ -10,10 +10,12 @@ export const SearchBar: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const debouncedSearchTerm = useDebounce(searchTerm, 500);
 
+  // Dispatches the debounced search term to the Redux store whenever it changes.
   useEffect(() => {
     dispatch(setSearchQuery(debouncedSearchTerm));
   }, [debouncedSearchTerm, dispatch]);
 
+  // Clears the local search term state and dispatches an action to clear the search query in Redux.
   const handleClear = () => {
     setSearchTerm('');
     dispatch(clearSearch());

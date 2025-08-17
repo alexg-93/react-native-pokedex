@@ -9,6 +9,7 @@ interface PokemonCardProps {
 }
 
 export const PokemonCard: React.FC<PokemonCardProps> = ({ pokemon }) => {
+  // Navigates to the detailed page of the selected Pokemon.
   const handlePress = () => {
     router.push(`/pokemon/${pokemon.name}`);
   };
