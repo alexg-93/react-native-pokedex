@@ -80,5 +80,6 @@ export interface RootState {
   search: {
     query: string;
     filteredPokemon: Pokemon[];
+    minStrength: number | null;
   };
 }
